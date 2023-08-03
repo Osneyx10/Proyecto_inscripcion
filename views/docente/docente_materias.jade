@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+
+    form(action="/docente/docente_materias", method= "POST")
+        .container.py-2
+            .row
+                .col-12.py-2
+                    h2= title
+                .col-md-6.col-12
+                    label.form-label(for="docente_id") Docente
+                    select#docente_id.form-control(type="text",name="docente_id")
+                        -for(let i = 0; i < docentes.length; i++)
+                            option(value=docentes[i].id)=docentes[i].nombre_docente
+                .col-md-6.col-12
+                    label.form-label(for="materias_id") Materia
+                    select#materias_id.form-control(type="text",name="materias_id")
+                        -for(let i = 0; i < materias.length; i++)
+                            option(value=materias[i].id)=materias[i].materia
+                .col-12.py-2
+                    button.btn.btn-primary(type="submit") Asignar
+                    a.btn.btn-secondary(href="/docente") Cancelar

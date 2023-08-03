@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    .container.py-2
+        .row
+            .col-12.py-2
+                h2= title
+            .col-12.py-2
+                table.table
+                    thead
+                        tr
+                            th(scope='col') #
+                            th(scope='col') Nombre
+                            th(scope='col') Email
+                            th(scope='col') Especialidad
+                            th(scope='col') Fecha
+                    tbody
+                        -for(let i = 0; i < estudiantes.length; i++)
+                            tr
+                                th(scope='row')=estudiantes[i].id
+                                td=estudiantes[i].name
+                                td=estudiantes[i].email
+                                td=estudiantes[i].especialidad
+                                td=estudiantes[i].create_at.toLocaleString()
+
+
+            .col-12.py-2
+                a.btn.btn-primary(href="/student/new") Nuevo Estudiante          

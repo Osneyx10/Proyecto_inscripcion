@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+
+    form(action="/student/new", method= "POST")
+        .container.py-2
+            .row
+                .col-12.py-2
+                    h2= title
+                .col-md-6.col-12 
+                    label.form-label(for="nombre_alumno") Nombre 
+                    input#name.form-control(type="text",name="nombre_alumno")
+
+                .col-md-6.col-12 
+                    label.form-label(for="email") Email  
+                    input#email.form-control(type="text",name="email")
+
+                .col-md-6.col-12.py-2
+                    label.form-label(for="cod_especialidad") Especialidad
+                    select#cod_especialidad.form-control(type="text",name="cod_especialidad")
+                        //-option(value="1") Sistemas
+                        -for(let i = 0; i < especialidad.length; i++)
+                            option(value=especialidad[i].id)=especialidad[i].name
+                
+                .col-md-12.col-12.py-2
+                    button.btn.btn-primary(type="submit") Crear
+
+                    a.btn.btn-secondary(href="/student") Cancelar
+
